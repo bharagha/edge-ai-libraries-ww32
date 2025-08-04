@@ -8,7 +8,7 @@ global:
 
   # vlmName is Vision-Language Model Name used by VLM Inference Microservice
   vlmName: ""
-  # llmName is Large Languge Model Name used by OVMS service
+  # llmName is Large Language Model Name used by OVMS service
   llmName: ""
 
   env:
