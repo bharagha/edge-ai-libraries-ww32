@@ -33,7 +33,7 @@ spec:
                   echo "No config.json found, running init script. /config/init-script.sh "{{ .Values.global.LLM_MODEL }}" "{{ .Values.ovms.env.WEIGHT_FORMAT }}" "{{ .Values.global.huggingface.apiToken }}""
                   . /config/init-script.sh
                 fi
-          args: ["{{ .Values.global.LLM_MODEL}}","{{ .Values.ovms.env.WEIGHT_FORMAT }}","{{ .Values.global.huggingface.apiToken }}"]
+          args: ["{{ .Values.global.llmName}}","{{ .Values.ovms.env.WEIGHT_FORMAT }}","{{ .Values.global.huggingface.apiToken }}"]
           env:
             - name: http_proxy
               value: {{ .Values.global.proxy.http_proxy }}

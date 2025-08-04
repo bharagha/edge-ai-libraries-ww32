@@ -4,6 +4,12 @@ global:
   proxy:
     http_proxy: 
     https_proxy:
+
+  # vlmName is Vision-Language Model Name used by VLM Inference Microservice
+  vlmName: ""
+  # llmName is Large Languge Model Name used by OVMS service
+  llmName: ""
+
   env:
     UI_NODEPORT: 31998
     POSTGRES_USER: 
@@ -15,8 +21,6 @@ global:
     MINIO_ROOT_PASSWORD: 
     RABBITMQ_DEFAULT_USER:
     RABBITMQ_DEFAULT_PASS: 
-    VLM_MODEL_NAME: 
-    OVMS_LLM_MODEL_NAME:
     OTLP_ENDPOINT: ""
     OTLP_ENDPOINT_TRACE: ""
     keeppvc: false # Set to true to keep PVCs after uninstalling the chart
