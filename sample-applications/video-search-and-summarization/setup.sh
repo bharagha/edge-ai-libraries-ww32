@@ -332,6 +332,15 @@ else
     export RENDER_DEVICE_GID=0
 fi
 
+# Set DRI_MOUNT_PATH based on whether /dev/dri exists and is not empty
+if [ -d /dev/dri ] && [ "$(ls -A /dev/dri)" ]; then
+    export DRI_MOUNT_PATH="/dev/dri"
+    echo -e "${GREEN}/dev/dri found and not empty. Will mount.${NC}"
+else
+    export DRI_MOUNT_PATH="/dev/null"
+    echo -e "${YELLOW}/dev/dri not found or empty, will mount /dev/null instead.${NC}"
+fi
+
 # Function to convert object detection models
 convert_object_detection_models() {
     echo -e  "Setting up Python environment for object detection model conversion..."

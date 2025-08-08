@@ -135,7 +135,7 @@ services:
       EMBEDDING_USE_OV: ${VCLIP_USE_OV}
       EMBEDDING_DEVICE: ${VCLIP_DEVICE}
     devices:
-      - /dev/dri:/dev/dri
+      - ${DRI_MOUNT_PATH}:/dev/dri
     group_add:
       - ${USER_GROUP_ID-1000} 
       - ${VIDEO_GROUP_ID-44}    
