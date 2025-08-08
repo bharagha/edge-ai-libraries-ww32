@@ -14,6 +14,17 @@ This guide shows how to:
 - **Run different application stacks**: Execute different application stacks available in the application to perform video search and summary.
 - **Modify application parameters**: Customize settings like inference models and deployment configurations to adapt the application to your specific requirements.
 
+> **ℹ️ Note for EMT (Edge Microvisor Toolkit) Users**
+>
+> If you are running the VSS application on an OS image built with **Edge Microvisor Toolkit (EMT)**—an Azure Linux-based build pipeline for Intel® platforms—you must install the following package to enable GPU support:
+>
+> ```bash
+> sudo dnf install mesa-libGL
+> ```
+>
+> Installing `mesa-libGL` provides the OpenGL library and typically creates the `/dev/dri` device path, which is the standard device path for Direct Rendering Infrastructure (DRI) on Linux, required for GPU-accelerated workloads. However, please verify that `/dev/dri` exists on your system after installation. If it does not, ensure your system configuration allows for GPU device creation, as this path is necessary for the VSS application to use hardware acceleration.
+
+
 ## ✅ Prerequisites
 
 - Verify that your system meets the [minimum requirements](./system-requirements.md).
