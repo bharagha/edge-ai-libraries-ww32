@@ -72,15 +72,6 @@ export APP_HOST_PORT=12345
 # Export all environment variables
 # Base configuration
 export HOST_IP=$(ip route get 1 | awk '{print $7}')  # Fetch the host IP
-# Add HOST_IP and localhost to no_proxy
-if [ -n "$no_proxy" ]; then
-    # if no_proxy variable is not null
-    [[ $no_proxy != *"${HOST_IP}"* ]] && no_proxy="${no_proxy},${HOST_IP}"
-    [[ $no_proxy != *"localhost"* ]] && no_proxy="${no_proxy},localhost"
-    export no_proxy=${no_proxy}
-else
-    export no_proxy="localhost,${HOST_IP}"
-fi
 export TAG=${TAG:-latest}
 
 # If REGISTRY_URL is set, ensure it ends with a trailing slash

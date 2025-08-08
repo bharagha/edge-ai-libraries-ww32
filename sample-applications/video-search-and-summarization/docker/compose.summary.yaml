@@ -54,7 +54,7 @@ services:
     ports:
       - "${VLM_HOST_PORT}:8000"
     environment:
-      no_proxy: ${no_proxy},${MINIO_HOST}
+      no_proxy: ${no_proxy},${MINIO_HOST},localhost
       no_proxy_env: ${no_proxy},${MINIO_HOST}
       http_proxy: ${http_proxy}
       https_proxy: ${https_proxy}
@@ -92,7 +92,7 @@ services:
     profiles:
       - ovms
     environment:
-      - no_proxy=${no_proxy}
+      - no_proxy=${no_proxy},localhost
       - http_proxy=${http_proxy}
       - https_proxy=${https_proxy}
     ports:
@@ -126,7 +126,7 @@ services:
       retries: 3
       start_period: 15s
     environment:
-      no_proxy: ${no_proxy},${MINIO_HOST},${RABBITMQ_HOST}
+      no_proxy: ${no_proxy},${MINIO_HOST},${RABBITMQ_HOST},localhost
       http_proxy: ${http_proxy}
       https_proxy: ${https_proxy}
       RABBITMQ_HOST: ${RABBITMQ_HOST}
@@ -185,7 +185,7 @@ services:
     environment:
       - http_proxy
       - https_proxy
-      - no_proxy=$no_proxy,${MINIO_HOST}
+      - no_proxy=$no_proxy,${MINIO_HOST},localhost
       - DEBUG=false
       - ENABLED_WHISPER_MODELS=${AUDIO_ENABLED_MODELS} # Comma-separated list of models to enable
       - MAX_FILE_SIZE=${AUDIO_MAX_FILE} # 300MB
@@ -222,7 +222,7 @@ services:
       retries: 3
       start_period: 15s
     environment:
-      no_proxy: ${no_proxy}
+      no_proxy: ${no_proxy},localhost
       http_proxy: $http_proxy
       https_proxy: $https_proxy
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
